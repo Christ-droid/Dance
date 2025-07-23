@@ -1,0 +1,10 @@
+
+.custom-margin-left {
+  margin-left: 8rem; 
+}
+
+@media (max-width: 767px) {
+  .custom-margin-left {
+    margin-left: 1rem;
+  }
+}
