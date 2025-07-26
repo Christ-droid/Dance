@@ -1,40 +1,108 @@
 
-function Carousel() {
+import dsc0733 from '../assets/DSC_0733.jpg'; 
+type TeamMember = {
+    name: string;
+    role: string;
+    img: string;
+    alt: string;
+};
+
+import React, { useState } from 'react';
+
+const teamMembers: TeamMember[] = [
+    {
+        name: "Rick-Daniel BOUANGA MAKAYA",
+        role: "Fondateur & Moniteur Principal",
+        img: dsc0733,
+        alt: "Rick-Daniel BOUANGA MAKAYA"
+    },
+    {
+        name: "Joséphine KOUMBA IFOUNGA",
+        role: "Responsable Admin",
+        img: dsc0733,
+        alt: "Joséphine KOUMBA IFOUNGA"
+    },
+    {
+        name: "Olivier NGOMO NZANG",
+        role: "Moniteur Gymnastique/Acrobaties",
+        img: dsc0733,
+        alt: "Olivier NGOMO NZANG"
+    },
+    {
+        name: "Chris Laurent NGUI",
+        role: "Moniteur Gymnastique/Comptabilité",
+        img: dsc0733,
+        alt: "Chris Laurent NGUI"
+    },
+    {
+        name: "Manassé YANGARI",
+        role: "Moniteur Danse/Afro dance et hip-hop",
+        img: dsc0733,
+        alt: "Manassé YANGARI"
+    },
+    {
+        name: "Simone Grâce NZANG NDONG",
+        role: "Monitrice Gymnastique",
+        img: dsc0733,
+        alt: "Simone Grâce NZANG NDONG"
+    }
+];
+
+const Slideshow: React.FC = () => {
+    const [current, setCurrent] = useState(0);
+
+    const prev = () => setCurrent((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+    const next = () => setCurrent((prev) => (prev + 1) % teamMembers.length);
+
     return (
-        <div id="myCarousel" className="carousel slide mb-6" data-bs-ride="carousel">
-            <div className="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+        <div className="d-flex flex-column align-items-center mb-5">
+            <div style={{ position: "relative", width: 320, height: 420 }}>
+                {teamMembers.map((member, idx) => {
+                    // Calculate position relative to current
+                    let offset = idx - current;
+                    if (offset < -Math.floor(teamMembers.length / 2)) offset += teamMembers.length;
+                    if (offset > Math.floor(teamMembers.length / 2)) offset -= teamMembers.length;
 
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg>
-                    <div className="container">
-                        <div className="carousel-caption text-start">
-                            <h1>Example headline.</h1>
-                            <p className="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a className="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                    const isActive = idx === current;
+                    const zIndex = isActive ? 2 : 1;
+                    const scale = isActive ? 1 : 0.85;
+                    const opacity = isActive ? 1 : 0.5;
+                    const translateX = offset * 40;
+
+                    return (
+                        <div
+                            key={member.name}
+                            className="card shadow border-0 position-absolute"
+                            style={{
+                                top: 0,
+                                left: "50%",
+                                transform: `translateX(-50%) translateX(${translateX}px) scale(${scale})`,
+                                zIndex,
+                                opacity,
+                                width: 300,
+                                transition: "all 0.15s cubic-bezier(.4,2,.6,1)",
+                                pointerEvents: isActive ? "auto" : "none"
+                            }}
+                        >
+                            <img src={member.img} className="card-img-top" alt={member.alt} />
+                            <div className="card-body text-center">
+                                <h5 className="card-title">{member.name}</h5>
+                            </div>
+                            <div className="card-footer bg-white border-0 text-center">
+                                <small className="text-body-secondary">{member.role}</small>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* ... deuxième et troisième slide identiques avec leurs contenus ... */}
+                    );
+                })}
+                <button className="btn btn-outline-primary me-2" onClick={prev} aria-label="Précédent">
+                    &#8592;
+                </button>
+                <button className="btn btn-outline-primary" onClick={next} aria-label="Suivant">
+                    &#8594;
+                </button>
             </div>
-
-            <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true" />
-                <span className="visually-hidden">Next</span>
-            </button>
         </div>
     );
-}
+};
 
-export default Carousel;
+export default Slideshow;

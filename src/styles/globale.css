@@ -4,8 +4,10 @@ body{
     padding: 0;
     width: 100%;
     height: 100hw;
-    background: linear-gradient(90deg, #FFC726, #D20F45);
+    background: #73726f;
     overflow-x: hidden;
+    color: aliceblue;
+
 }
 img{
     border-radius: 10px;

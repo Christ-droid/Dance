@@ -14,3 +14,13 @@
   padding: 0;
   margin: 0;
 }
+.zero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.zero h1{
+  text-align: center;
+}
