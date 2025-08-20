@@ -1,108 +1,81 @@
+import React from 'react';
+import { Carousel, Card, Container, Row, Col } from 'react-bootstrap';
+import { User, Award, Star } from 'lucide-react';
 
-import dsc0733 from '../assets/DSC_0733.jpg'; 
-type TeamMember = {
-    name: string;
-    role: string;
-    img: string;
-    alt: string;
-};
-
-import React, { useState } from 'react';
-
-const teamMembers: TeamMember[] = [
+const TeamSlideshow = () => {
+  const teamMembers = [
     {
-        name: "Rick-Daniel BOUANGA MAKAYA",
-        role: "Fondateur & Moniteur Principal",
-        img: dsc0733,
-        alt: "Rick-Daniel BOUANGA MAKAYA"
+      name: "Rick-Daniel BOUANGA MAKAYA",
+      role: "Fondateur & Moniteur Principal",
+      description: "juste une petite description",
+      color: "danger"
     },
     {
-        name: "Joséphine KOUMBA IFOUNGA",
-        role: "Responsable Admin",
-        img: dsc0733,
-        alt: "Joséphine KOUMBA IFOUNGA"
+      name: "Joséphine KOUMBA IFOUNGA",
+      role: "Responsable Administrative",
+      description: "juste une petite description",
+      color: "danger"
     },
     {
-        name: "Olivier NGOMO NZANG",
-        role: "Moniteur Gymnastique/Acrobaties",
-        img: dsc0733,
-        alt: "Olivier NGOMO NZANG"
+      name: "Olivier NGOMO NZANG",
+      role: "Moniteur Gymnastique",
+      specialty: "Acrobaties et techniques avancées",
+      description: "juste une petite description",
+      color: "danger"
     },
     {
-        name: "Chris Laurent NGUI",
-        role: "Moniteur Gymnastique/Comptabilité",
-        img: dsc0733,
-        alt: "Chris Laurent NGUI"
+      name: "Chris Laurent NGUI",
+      role: "Moniteur Gymnastique",
+      specialty: "Formation et comptabilité",
+      description: "juste une petite description",
+      color: "danger"
     },
     {
-        name: "Manassé YANGARI",
-        role: "Moniteur Danse/Afro dance et hip-hop",
-        img: dsc0733,
-        alt: "Manassé YANGARI"
+      name: "Manassé YANGARI",
+      role: "Moniteur Danse",
+      specialty: "Afro dance et Hip-hop",
+      description: "juste une petite description",
+      color: "danger"
     },
     {
-        name: "Simone Grâce NZANG NDONG",
-        role: "Monitrice Gymnastique",
-        img: dsc0733,
-        alt: "Simone Grâce NZANG NDONG"
+      name: "Simone Grâce NZANG NDONG",
+      role: "Monitrice Gymnastique",
+      specialty: "Formation générale et accompagnement",
+      description: "juste une petite description",
+      color: "danger"
     }
-];
+  ];
 
-const Slideshow: React.FC = () => {
-    const [current, setCurrent] = useState(0);
-
-    const prev = () => setCurrent((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-    const next = () => setCurrent((prev) => (prev + 1) % teamMembers.length);
-
-    return (
-        <div className="d-flex flex-column align-items-center mb-5">
-            <div style={{ position: "relative", width: 320, height: 420 }}>
-                {teamMembers.map((member, idx) => {
-                    // Calculate position relative to current
-                    let offset = idx - current;
-                    if (offset < -Math.floor(teamMembers.length / 2)) offset += teamMembers.length;
-                    if (offset > Math.floor(teamMembers.length / 2)) offset -= teamMembers.length;
-
-                    const isActive = idx === current;
-                    const zIndex = isActive ? 2 : 1;
-                    const scale = isActive ? 1 : 0.85;
-                    const opacity = isActive ? 1 : 0.5;
-                    const translateX = offset * 40;
-
-                    return (
-                        <div
-                            key={member.name}
-                            className="card shadow border-0 position-absolute"
-                            style={{
-                                top: 0,
-                                left: "50%",
-                                transform: `translateX(-50%) translateX(${translateX}px) scale(${scale})`,
-                                zIndex,
-                                opacity,
-                                width: 300,
-                                transition: "all 0.15s cubic-bezier(.4,2,.6,1)",
-                                pointerEvents: isActive ? "auto" : "none"
-                            }}
-                        >
-                            <img src={member.img} className="card-img-top" alt={member.alt} />
-                            <div className="card-body text-center">
-                                <h5 className="card-title">{member.name}</h5>
-                            </div>
-                            <div className="card-footer bg-white border-0 text-center">
-                                <small className="text-body-secondary">{member.role}</small>
-                            </div>
-                        </div>
-                    );
-                })}
-                <button className="btn btn-outline-primary me-2" onClick={prev} aria-label="Précédent">
-                    &#8592;
-                </button>
-                <button className="btn btn-outline-primary" onClick={next} aria-label="Suivant">
-                    &#8594;
-                </button>
-            </div>
-        </div>
-    );
+  return (
+    
+    <Container>
+      <Carousel indicators={false} className="team-carousel">
+        {teamMembers.map((member, index) => (
+          <Carousel.Item key={index}>
+            <Row className="justify-content-center">
+              <Col lg={8}>
+                <Card className="border-0 shadow-lg">
+                  <Card.Body className="p-5 text-center">
+                    <div className={`mx-auto mb-4 rounded-circle bg-${member.color} d-flex align-items-center justify-content-center`} 
+                         style={{width: '80px', height: '80px'}}>
+                      <User size={40} className="text-white" />
+                    </div>
+                    <h4 className="fw-bold mb-2">{member.name}</h4>
+                    <h6 className={`text-${member.color} mb-3`}>{member.role}</h6>
+                    <div className="d-flex align-items-center justify-content-center mb-3">
+                      <Star size={16} className={`text-${member.color} me-2`} />
+                      <small className="text-muted fw-semibold">{member.specialty}</small>
+                    </div>
+                    <p className="lead text-muted">{member.description}</p>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Container>
+  );
 };
 
-export default Slideshow;
+export default TeamSlideshow;

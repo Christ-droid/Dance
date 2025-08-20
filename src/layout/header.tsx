@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import dancingImg from '../assets/logo.jpg';
+import dancingImg from '../assets/Logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 function Header() {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-primary bg-dark text-white">
+    <nav className="navbar navbar-expand-md bg-white text-white">
       <div className="container d-flex align-items-center">
         {}
         <NavLink to="/" className="navbar-brand d-flex align-items-center gap-2">
-          <img src={dancingImg} alt="Logo" height="40" />
+          <img src={dancingImg} alt="Logo" height="50" />
           <span>Zéro A Héro</span>
         </NavLink>
 
@@ -59,7 +59,7 @@ function Header() {
                 to="/calendrier"
                 className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
               >
-                Calendrier
+                test
               </NavLink>
             </li>
             <li className="nav-item">

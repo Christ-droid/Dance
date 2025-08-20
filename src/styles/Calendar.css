@@ -1,0 +1,17 @@
+.calendar-container {
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.event-content {
+  font-size: 0.9rem;
+  color: #333;
+}

@@ -8,7 +8,7 @@ import Calendrier from './pages/calendrier';
 
 function App() {
   return (
-    <div className="min-vh-100 p-0 m-0" style={{ width: '100vw', overflowX: 'hidden' }}>
+    <div className="min-vh-100 p-0 m-0" style={{ width: '100vw', overflowX: 'hidden' ,}}>
       <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
