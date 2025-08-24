@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Container, Row, Col, Card, Button, Badge, Carousel } from 'react-bootstrap';
-import { CalendarDays, History, Clock, ChevronRight, Sparkles } from 'lucide-react';
+import { CalendarDays, History, Clock, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/globale.css'
 

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import dancingImg from '../assets/Logo.png';
+import dancingImg from '../assets/Logo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 

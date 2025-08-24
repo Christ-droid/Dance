@@ -13,9 +13,6 @@ import {
   Shield,
   Users,
   HandHeart,
-  Calendar,
-  Award,
-  ChevronRight,
   Clock,
 } from "lucide-react";
 import TeamSlideshow from "../components/slideshow";

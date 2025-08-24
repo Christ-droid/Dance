@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+
 import { 
-  Zap, 
   Music, 
   Heart, 
-  Clock, 
   Star, 
-  Trophy,
-  Sparkles,
   Target
 } from "lucide-react";
+import { useState } from "react";
 
 // Petits utilitaires couleur
 const gradients: Record<string, [string, string]> = {

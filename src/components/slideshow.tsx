@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { Carousel, Card, Container, Row, Col } from 'react-bootstrap';
-import { User, Award, Star } from 'lucide-react';
+import { User,  Star } from 'lucide-react';
 
 const TeamSlideshow = () => {
   const teamMembers = [

@@ -1,20 +1,16 @@
-import React, { useRef, type FormEvent, useState } from 'react';
+import  { useRef, type FormEvent, useState } from 'react';
 import { 
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  Facebook, 
-  Instagram, 
-  Twitter, 
-  Youtube,
   Send,
   CheckCircle,
   AlertCircle,
 } from 'lucide-react';
 import emailjs from 'emailjs-com';
 import "../styles/globale.css"
-import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
+import { Container, } from 'react-bootstrap';
 
 function Contact() {
   const form = useRef<HTMLFormElement>(null);

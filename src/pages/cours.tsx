@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import AOS from 'aos';
 import "../styles/cours.css";
-import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
-import { Activity, Music, ChevronRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Card,  Button } from 'react-bootstrap';
+import {  ChevronRight } from 'lucide-react';
+import {  useNavigate } from 'react-router-dom';
 
 
 
