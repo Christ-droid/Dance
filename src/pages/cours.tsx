@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 import gym from '../assets/SHOOTING/IMG_2370.jpg';
-import dance from '../assets/SPECTACLE/IMG_2327.jpg';
+import dance from '../assets/SPECTACLE/spectacle_1.jpg';
 
 import gymFloor from '../assets/SPECTACLE/IMG_2334.jpg';
 import gymEquipment from '../assets/SPECTACLE/IMG_2334.jpg';

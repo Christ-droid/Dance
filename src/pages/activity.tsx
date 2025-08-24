@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/globale.css'
 
 // ✅ Importation directe des images (dans /src/assets/...)
-import img1 from '../assets/SPECTACLE/IMG_2334.jpg';
+import img1 from '../assets/SPECTACLE/IMG_2383.jpg';
 import img2 from '../assets/SHOOTING/IMG_2808.jpg';
-import img3 from '../assets/SHOOTING/IMG_2370.jpg';
-import img4 from '../assets/SPECTACLE/IMG_2334.jpg';
+import img3 from '../assets/SPECTACLE/spectacle_2.jpg';
+import img4 from '../assets/SPECTACLE/spectacle_1.jpg';
 import img5 from '../assets/SHOOTING/IMG_2808.jpg';
 
 const Activities = () => {
